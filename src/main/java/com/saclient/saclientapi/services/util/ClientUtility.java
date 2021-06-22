@@ -24,10 +24,10 @@ public class ClientUtility implements IClientUtility{
 		List<Client> list = new ArrayList<Client>();
 
 		list.add(new Client("Adam", "Gustombe", "8823112211", "8606045023094", "Johanseberg"));
-		list.add(new Client("Ana", "Rod", "8823112211", "8606045023021", "Johanseberg"));
-		list.add(new Client("Jack", "Garvey", "8823112211", "8606045023122", "Tanzania"));
-		list.add(new Client("Berry", "Geller", "8823112211", "8606045023024", "Capetown"));
-		list.add(new Client("Chad", "McLen", "8823112211", "8606045023024", "Johanseberg"));
+		list.add(new Client("Ana", "Rod", "8823112212", "8606045023021", "Johanseberg"));
+		list.add(new Client("Jack", "Garvey", "8823112213", "8606045023122", "Tanzania"));
+		list.add(new Client("Berry", "Geller", "8823112214", "8606045023024", "Capetown"));
+		list.add(new Client("Chad", "McLen", "8823112215", "8606045023024", "Johanseberg"));
 		
 		return list;
 	}
