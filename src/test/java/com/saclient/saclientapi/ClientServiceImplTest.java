@@ -135,4 +135,17 @@ class ClientServiceImplTest {
 			assertEquals("Invalid input to update a record", e.getMessage());
 		}
 	}
+	
+	@Test
+	public void testDeleteClient() {
+		when(clientService.deleteClient(Mockito.any(Client.class))).thenCallRealMethod();
+		Client c = new Client("Adam", "Gustombe", "8823112211", "8606045023094", "Johanseberg");
+		Client c1 = clientService.deleteClient(c);
+		assertEquals(c,c1);
+		try {
+			clientService.deleteClient(new Client("Hoesy", "Jack", "8823112212", "8606045023094", "Johanseberg"));
+		}catch(ClientApiError e) {
+			assertEquals("client was not found", e.getMessage());
+		}
+	}
 }

@@ -22,4 +22,6 @@ public interface IClientService {
 	public List<Client> searchClientByFirstNameOrMobileNumberOrIdNumber(String input);
 	
 	public boolean validateSaId(String saId);
+	
+	public Client deleteClient(Client client);
 }

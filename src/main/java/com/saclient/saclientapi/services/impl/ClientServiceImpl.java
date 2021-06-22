@@ -80,11 +80,10 @@ public class ClientServiceImpl implements IClientService {
 		Client res = new Client();
 		if (c.isPresent()) {
 			final Client clnt  = c.get();
-			List<Client> tempClientList = listOfClients.stream().filter(item -> !item.equals(clnt)).collect(Collectors.toList());
 			if (Objects.isNull(client.getFirstName()) || Objects.isNull(client.getLastName())
 					|| Objects.isNull(client.getIdNumber())
 					|| !clientUtility.isValidSaId(client.getIdNumber()).isBlank()
-					|| (Objects.nonNull(client.getMobileNumber()) && tempClientList.contains(client))
+					|| (Objects.nonNull(client.getMobileNumber()) && isIdNumberAlreadyExists(client.getMobileNumber()))
 					|| (!saId.equals(client.getIdNumber()))) {
 				throw new ClientApiError("Invalid input to update a record");
 			}
@@ -131,5 +130,16 @@ public class ClientServiceImpl implements IClientService {
 		else
 			return false;
 	}
+
+	@Override
+	public Client deleteClient(Client client) {
+		if(!listOfClients.contains(client)) {
+			throw new ClientApiError("client was not found");
+		}else {
+			listOfClients.remove(client);
+		}
+		return client;
+	}
+		
 
 }
